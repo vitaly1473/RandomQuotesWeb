@@ -1,0 +1,43 @@
+﻿<!-- файл add.html  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> add </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Add a Quote</h1>
+
+    <form id="quoteForm">
+        <label for="quote">Quote:</label>
+        <input type="text" id="quote" name="quote" required>
+        <button type="submit">Add</button>
+    </form>  
+    
+    <a href="/">Back to Home</a>
+
+    <script>
+    document.getElementById('quoteForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var quote = document.getElementById('quote').value;
+            if (quote.trim() === '') return;
+
+            // Save quote to LocalStorage
+            var quotes = JSON.parse(localStorage.getItem('quotes')) || [];
+            quotes.push(quote);
+            localStorage.setItem('quotes', JSON.stringify(quotes));
+
+            // очистка текстового поля
+            document.getElementById('quote').value = '';
+
+            // сообщение клиенту: подтвердите действие
+            alert('Quote added successfully!');
+    });
+    </script>
+
+</body>
+</html>

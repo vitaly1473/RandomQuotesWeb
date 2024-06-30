@@ -1,0 +1,32 @@
+﻿<!-- файл quote.html  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Random Quote</h1>
+    <p id="quoteText">Loading...</p>
+    <button onclick="getRandomQuote()">Get Random Quote</button>
+    <a href="/">Back to Home</a>
+
+    <script>
+        function getRandomQuote() {
+            var quotes = JSON.parse(localStorage.getItem('quotes')) || [];
+            if (quotes.length === 0) {
+                document.getElementById('quoteText').innerText = "No quotes available.";
+            } else {
+                var randomIndex = Math.floor(Math.random() * quotes.length);
+                document.getElementById('quoteText').innerText = quotes[randomIndex];
+            }
+        }
+        // load a random quote on page load
+        getRandomQuote();
+    </script>
+
+
+</body>
+</html>

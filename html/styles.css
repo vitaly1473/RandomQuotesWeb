@@ -1,0 +1,10 @@
+﻿/* файл styles.css */
+body {
+    margin: 0 15px;
+    padding: 5px 10px 0;
+    /*background-color: rgb(240, 240, 240); /* серый цвет, фон всей страницы */
+    background-color: rgb(135 160 245) ;
+    font-family: Verdana, sans-serif; /* стиль шрифта Verdana без засечек */
+    font-size: 12px;
+    color: black; /* цвет текста */
+}
